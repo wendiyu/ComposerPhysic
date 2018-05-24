@@ -1,3 +1,12 @@
+-----------------------------------------------------------------------------------------
+--
+-- main.lua
+-- Created by: Wendi Yu
+-- Created on: May 2018
+-- 
+-- This file is create a splash scene composer
+-----------------------------------------------------------------------------------------
+
 -- splashScene
 
 local composer = require( "composer" )
