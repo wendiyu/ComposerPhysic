@@ -35,7 +35,7 @@ function scene:create( event )
     -- start physics
     physics.start()
     physics.setGravity(0, 32)
-    physics.setDrawMode("hybrid")
+    --physics.setDrawMode("hybrid")
  
 end
  
@@ -47,25 +47,6 @@ function scene:show( event )
     local phase = event.phase
  
     if ( phase == "will" ) then
-        local theGround1 = display.newImage( "./assets/sprites/land.png" )
-        theGround1.x = 520
-        theGround1.y = display.contentHeight
-        theGround1.id = "the ground"
-        physics.addBody( theGround1, "static", { 
-            friction = 0.5, 
-            bounce = 0.3 
-            } )
-        sceneGroup:insert( theGround1 )
-
-        local theGround2 = display.newImage( "./assets/sprites/land.png" )
-        theGround2.x = 1520
-        theGround2.y = display.contentHeight
-        theGround2.id = "the ground" -- notice I called this the same thing
-        physics.addBody( theGround2, "static", { 
-            friction = 0.5, 
-            bounce = 0.3 
-            } )
-        sceneGroup:insert( theGround2 )
 
         local theMushroom = display.newImage( "./assets/sprites/environment/mushroom_red.png" )
         theMushroom.x = display.contentWidth / 2
@@ -75,6 +56,7 @@ function scene:show( event )
             friction = 0.5, 
             bounce = 0.3 
             } )
+        theMushroom.isFixedRotation = true 
 
         local filename = "assets/maps/level0.json" 
         local mapData = json.decodeFile( system.pathForFile( filename, system.ResourceDirectory ) )
